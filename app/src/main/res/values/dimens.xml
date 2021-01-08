@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="bar_height">60dp</dimen>
+    <dimen name="init_trans">250dp</dimen>
+    <dimen name="init_trans_max_range">80dp</dimen>
+    <dimen name="sus_hide_distance">25dp</dimen>
+    <dimen name="bar_visiable">10dp</dimen>
+    <dimen name="background_init_trans">-40dp</dimen>
+    <dimen name="background_max_trans">40dp</dimen>
+    <dimen name="background_max_range">280dp</dimen>
+</resources>

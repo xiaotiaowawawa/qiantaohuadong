@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.gift.qiantaotest.ElementNestedScrollLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/content_coll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--可见头部-->
+        <FrameLayout
+            android:id="@+id/content_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!--底部背景-->
+        <FrameLayout
+            android:id="@+id/content_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+    <!--悬浮部分-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sus_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/top_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/top_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/small_arrow_up"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tb_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            app:layout_constraintBottom_toTopOf="@id/vp_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/vp_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="50dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tb_content"
+            app:layout_constraintVertical_weight="1" >
+            <TextView
+                android:text="hello"
+                android:textSize="890sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--顶部背景-->
+    <ImageView
+        android:id="@+id/top_bg_view"
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:title="toolbar" />
+
+    <FrameLayout
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="#000000" />
+</com.gift.qiantaotest.ElementNestedScrollLayout>

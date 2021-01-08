@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BehaviorActivity">
+
+    <FrameLayout
+        android:id="@+id/fl_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior=".BackgroundBehavior">
+
+        <ImageView
+            android:id="@+id/iv_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/jj"
+            android:translationY="@dimen/background_init_trans" />
+
+        <View
+            android:id="@+id/mask_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    <!--滑动布局顶部内容-->
+    <FrameLayout
+        android:id="@+id/nest_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:text="林俊杰"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="35dp"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/shape_collect_btn_bg"
+                android:gravity="center"
+                android:text="收藏 + "
+                android:textColor="@android:color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:background="@drawable/shape_tablayout_bg"
+        android:id="@+id/ll_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_behavior=".MusicContentBehavior">
+
+        <com.google.android.material.tabs.TabLayout
+            app:tabSelectedTextColor="@android:color/holo_red_light"
+            app:tabTextColor="@android:color/black"
+            android:id="@+id/tl_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorHeight="0dp"
+            />
+        <View
+            android:background="@android:color/darker_gray"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/nest_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bar_height"
+        app:contentInsetEnd="0dp"
+
+        app:layout_behavior=".BarBehavior"
+        app:titleMarginEnd="0dp"
+        app:titleMarginStart="0dp">
+
+        <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/bar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:text="林俊杰"
+            android:textColor="@android:color/white"
+            android:textSize="25sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/bar_collection"
+            android:layout_width="80dp"
+            android:layout_height="35dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_collect_btn_bg"
+            android:gravity="center"
+            android:text="收藏 + "
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
